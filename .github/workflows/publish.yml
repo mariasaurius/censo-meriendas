@@ -2,10 +2,14 @@ name: Publish dashboard
 
 on:
   workflow_dispatch:
+  push:
+    branches: {main}
+  schedule:
+    - cron: "/10 * * * *"
     
 jobs:
   build-deploy:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     permissions:
       contents: write
     steps:
